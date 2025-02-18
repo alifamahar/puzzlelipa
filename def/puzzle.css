@@ -1,0 +1,142 @@
+/* Reset dasar */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #b4488c;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Judul */
+h1 {
+    font-size: 32px;
+    color: #ffd99c;
+}
+
+/* Board untuk menyusun puzzle */
+#board {
+    width: min(90vw, 600px); /* Maksimal 600px, tapi bisa mengecil di layar kecil */
+    aspect-ratio: 6 / 4; /* Menjaga rasio 6 kolom x 4 baris */
+    border: 3px solid #ffffff;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 30px;
+}
+
+/* Potongan gambar dalam board */
+#board img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #b4488c;
+}
+
+/* Area potongan puzzle */
+#pieces {
+    width: min(95vw, 1200px);
+    height: auto;
+    border: 3px solid #ffffff;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Potongan gambar di pieces */
+#pieces img {
+    width: calc(100% / 12 - 4px); /* 6 kolom dengan jarak antar gambar */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgb(255, 255, 255);
+    cursor: grab;
+    border-radius: 5px;
+    gap: 5px;
+}
+
+/* Gaya jumlah turns */
+h2 {
+    font-size: 24px;
+    color: #f39c12;
+}
+
+/* Tombol Lanjutkan */
+#continue-btn {
+    background-color: #6a0dad; /* Warna ungu khas Avengers */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#continue-btn:hover {
+    background-color: #c500bb; /* Warna lebih gelap saat hover */
+    transform: scale(1.05);
+}
+
+#continue-btn:active {
+    transform: scale(0.95);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet (Lebar maks 768px) */
+@media screen and (max-width: 768px) {
+    #board {
+        width: 95vw;
+        gap: 1px;
+    }
+
+    #pieces {
+        width: 100%;
+    }
+
+    #pieces img {
+        width: calc(100% / 6 - 3px);
+    }
+}
+
+/* Handphone (Lebar maks 480px) */
+@media screen and (max-width: 480px) {
+    #board {
+        width: 100%;
+        gap: 1px;
+    }
+
+    #pieces {
+        width: 100%;
+    }
+
+    #pieces img {
+        width: calc(100% / 6 - 2px);
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #continue-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
